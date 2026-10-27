@@ -117,32 +117,7 @@ voice-shield-main/
 └── README.md
 ```
 
----
 
-## ⚙️ Installation
-
-### 1. Clone
-```bash
-
-cd voice-shield
-```
-
-### 2. Virtual environment
-```bash
-python3 -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-```
-
-### 3. Install dependencies
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-> **GPU acceleration (recommended):** Make sure your PyTorch install matches your CUDA version.  
-> Check: `python -c "import torch; print(torch.cuda.is_available())"`
-
----
 
 ## 🚀 Running Voice Shield
 
