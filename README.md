@@ -15,9 +15,6 @@ Modern financial fraud operations increasingly exploit generative AI voice cloni
 
 ---
 
-## 🏗️ System Architecture
-
-![Voice Shield System Architecture](architecture.png)
 
 ### End-to-End Pipeline Breakdown
 
@@ -72,7 +69,7 @@ At **1.22 MB** (297,866 parameters), the fine-tuned checkpoint (`checkpoints/bes
 ## 📁 Repository Structure
 
 ```
-voice-shield/
+voice-shield-main/
 │
 ├── backend/                    # Core runtime defense engine
 │   ├── __init__.py
@@ -190,19 +187,7 @@ Streams genuine human speech followed by a synthetic voice clone attack over the
        Action : CUT_CALL & LOCK_ACCOUNT
 ```
 
-### C — Standalone CLI Inference
-```bash
-python src/evaluation/test_audio.py --audio test_samples/demo_voice_clone.mp3
-```
 
-### D — Offline Stream Simulator
-```bash
-python src/engine/stream_engine.py --audio test_samples/audio1.mp3
-```
-
----
-
----
 
 ## 📊 Model Performance & Enterprise Test Verification
 
@@ -234,7 +219,6 @@ Simulated under calibrated additive Gaussian and channel distortions matching en
 ### 🎙️ Verified Test Samples Matrix (Clean & Synthesized)
 | Test Sample | Origin / Synthesis Method | Clean Risk | SNR 20dB | Assigned Tier | Interlock Action |
 |:---|:---|:---:|:---:|:---:|:---|
-| `demo_real_human.mp3` | Natural Human Speaker | **5.0%** | **9.2%** | 🟢 **GREEN** | Fast-Path Approved |
 | `audio1.mp3` | Conversational English Voice | **5.0%** | **9.7%** | 🟢 **GREEN** | Fast-Path Approved |
 | `audio2.mp3` | Natural Telephone Customer | **5.0%** | **6.2%** | 🟢 **GREEN** | Fast-Path Approved |
 | `query_2.mp3` | AI Synthesized Balance Query | **75.0%** | **51.5%** | 🔴 **RED** | Call Cut & Account Locked |
@@ -245,14 +229,3 @@ Simulated under calibrated additive Gaussian and channel distortions matching en
 | `generated_ai_wire_transfer.mp3` | **gTTS Impersonated Wire Authorization** | **100.0%** | **99.6%** | 🔴 **RED** | Call Cut & Account Locked |
 | `generated_ai_otp_prompt.mp3` | **gTTS Phishing OTP Intercept Voice** | **100.0%** | **99.6%** | 🔴 **RED** | Call Cut & Account Locked |
 
----
-
-## 📄 License & Attribution
-
-This project is released under the **MIT License**.
-
-| Component | Source | License |
-|:---|:---|:---|
-| AASIST architecture (`aasist_core.py`) | [clovaai/aasist](https://github.com/clovaai/aasist) — NAVER Corp. | MIT |
-| IndieFake fine-tuned weights | This repository | MIT |
-| FastAPI backend & streaming engine | This repository | MIT |
